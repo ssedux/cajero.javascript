@@ -1,0 +1,171 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+        <link rel="icon" type="image/x-icon" href="https://cdn-icons-png.flaticon.com/512/3635/3635995.png">
+    <title>Banco Software</title>
+  </head>
+  <body>
+    
+   
+
+    <style>
+
+        body
+        {
+          background-color: #4CAF50; 
+          
+            
+        }
+        #nombre {
+            margin-top: 60px;
+        }
+        
+    </style>
+
+  
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark static-top">
+        <div class="container">
+          <a class="navbar-brand" href="#">
+            <img src="https://cdn-icons-png.flaticon.com/512/3635/3635995.png" alt="..." height="100">
+          </a>
+         
+          
+        </div>
+      </nav>
+<br><br>
+<div class="container">
+      <div class="card" style="width: 45rem;">
+        <div class="card-body">
+            
+          <h5 class="card-title">Retiro de efectivo</h5>
+          <p class="card-text">
+            
+      <div class="container mt-4">
+        <div class="row justify-content-center">
+          <div class="col-md-6">
+            <div class="mb-3">
+              <label for="cantidad" class="form-label">Ingrese la cantidad de efectivo a retirar ($):</label>
+              <input type="number" class="form-control" id="cantidad">
+            </div>
+            <div class="mb-3">
+              <label for="nombre" class="form-label">Ingrese su nombre:</label>
+              <input type="text" class="form-control" id="nombre">
+            </div>
+            <button type="button" id="calcularBtn" class="btn btn-success">Realizar retiro de efectivo</button>
+          </div>
+          <p id="result"></p>
+        </div>
+      </div>
+          </p>
+             <br>
+             <br>
+             <div class="container text-center">
+                <div class="row justify-content-center">
+                  <div class=" col-6 col-sm-4">
+                    <div class="card">
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item">
+                                <div class="alert alert-info" role="alert">
+                                    <h5>Billetes de 100 $: <span class="badge bg-secondary" id="bille100">0</span></h5>
+                                </div>
+                            </li>
+                            <li class="list-group-item">
+                                <div class="alert alert-info" role="alert">
+                                    <h5>Billetes de 50 $: <span class="badge bg-secondary" id="bille50">0</span></h5>
+                                </div>
+                            </li>
+                            <li class="list-group-item">
+                                <div class="alert alert-info" role="alert">
+                                    <h5>Billetes de 20 $: <span class="badge bg-secondary" id="bille20">0</span></h5>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-6 col-sm-4">
+                    <div class="card">
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item">
+                                <div class="alert alert-info" role="alert">
+                                    <h5>Billetes de 10 $: <span class="badge bg-secondary" id="bille10">0</span></h5>
+                                </div>
+                            </li>
+                            <li class="list-group-item">
+                                <div class="alert alert-info" role="alert">
+                                    <h5>Billetes de 5 $: <span class="badge bg-secondary" id="bille5">0</span></h5>
+                                </div>
+                            </li>
+                            <li class="list-group-item">
+                                <div class="alert alert-info" role="alert">
+                                    <h5>Billetes de 1 $: <span class="badge bg-secondary" id="bille1">0</span></h5>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                </div></div></div></div></div>
+
+
+   
+
+   
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+    <script>
+      function Cajero() {
+        let cantidad = document.getElementById("cantidad").value;
+        let nombre = document.getElementById("nombre").value;
+        let c100 = 0;
+        let c50 = 0;
+        let c20 = 0;
+        let c10 = 0;
+        let c5 = 0;
+        let Element100 = document.getElementById("bille100");
+        let Element50 = document.getElementById("bille50");
+        let Element20 = document.getElementById("bille20");
+        let Element10 = document.getElementById("bille10");
+        let Element5 = document.getElementById("bille5");
+        let Element1 = document.getElementById("bille1");
+        let nameElement = document.getElementById("result");
+
+        nameElement.innerHTML = "Hola, " + nombre + ". Has retirado $" + cantidad;
+        nameElement.classList.add("mostrar");
+        nameElement.className = "alert alert-success mostrar";
+
+        if (cantidad >= 100) {
+          c100 = parseInt(cantidad / 100);
+          cantidad = cantidad - c100 * 100;
+        }
+        if (cantidad >= 50) {
+          c50 = parseInt(cantidad / 50);
+          cantidad = cantidad - c50 * 50;
+        }
+        if (cantidad >= 20) {
+          c20 = parseInt(cantidad / 20);
+          cantidad = cantidad - c20 * 20;
+        }
+        if (cantidad >= 10) {
+          c10 = parseInt(cantidad / 10);
+          cantidad = cantidad - c10 * 10;
+        }
+        if (cantidad >= 5) {
+          c5 = parseInt(cantidad / 5);
+          cantidad = cantidad - c5 * 5;
+        }
+
+        Element100.innerHTML = c100;
+        Element50.innerHTML = c50;
+        Element20.innerHTML = c20;
+        Element10.innerHTML = c10;
+        Element5.innerHTML = c5;
+        Element1.innerHTML = cantidad;
+      }
+
+      document.getElementById("calcularBtn").addEventListener("click", Cajero);
+    </script>
+  </body>
+</html>
